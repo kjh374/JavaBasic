@@ -7,7 +7,7 @@ public class PrintExample {
 		// 자바의 표준 출력 형식은 크게 3가지 입니다.
 		// 1. 개행을 포함하지 않는 print(); cursor가 그대로 있습니다.
 		// 2. 자동으로 개행을 포함해 주는 println(); cursor가 다음줄에 대기합니다.
-		// println(); == print("\n");
+		// println(); == printf("\n");
 		System.out.print("안녕하세요~!");
 		System.out.println("Hello~!");
 		System.out.print("byebye~~");
@@ -44,6 +44,9 @@ public class PrintExample {
         //%라는 문자 자체를 표현할 때는 %% 쓰시면 됩니다.
 		double rate = 64.126;
 		System.out.printf("합격률: %.2f%%입니다.\n", rate); 
+		
+		String s = "그는 나에게 \"도와줘!\" 라고 말했다.";
+		
 	}
 
 }
