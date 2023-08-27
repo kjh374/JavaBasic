@@ -47,31 +47,56 @@ public class EmployeeManager {
 					}
 					break;
 				}
-				
-					System.out.print("이름을 입력하세요.");
-					names[count] = sc.next();
-					System.out.print("나이를 입력하세요.");
-					ages[count] = sc.nextInt();
-					System.out.print("부서명을 입력하세요.");
-					departments[count] = sc.next();
-					count++;
+
+				System.out.print("이름을 입력하세요.");
+				names[count] = sc.next();
+				System.out.print("나이를 입력하세요.");
+				ages[count] = sc.nextInt();
+				System.out.print("부서명을 입력하세요.");
+				departments[count] = sc.next();
+				count++;
 
 
 			}else if(menu == 2) {
 				//각 배열을 반복문을 통해 저장된 데이터까지만 출력하도록 작성. (count)
 				//만약 사용자가 사원 등록을 한 명도 하지 않았다면
 				//"등록된 사원 정보가 없습니다." 를 출력하시면 됩니다.
-				
-				for(int i=0; i<=count; i++) {
-					System.out.println(Arrays.toString(userNums));
-					System.out.println(Arrays.toString(names));
-					System.out.println(Arrays.toString(ages));
-					System.out.println(Arrays.toString(departments));
+
+				for(int i=0; i<count; i++) {
+					System.out.println("사번: "+userNums[i]);
+					System.out.println("이름: "+names[i]);
+					System.out.println("나이: "+ages[i]);
+					System.out.println("부서명: "+departments[i]);
+					System.out.println();
 				}
+				System.out.println("나가시려면 아무 숫자나 누르세요.");
+				System.out.print("> ");
+				int insert = sc.nextInt();
 
 			}else if(menu == 3) {
 				//입력한 사번에 일치하는 사원의 4가지 정보를 모두 출력하세요.
 				//입력한 사번이 존재하지 않는다면 "조회하신 사원의 정보가 없습니다." 를 출력.
+
+				System.out.println("사번을 입력하세요: ");
+				System.out.println("> ");
+				String un = sc.next();
+				for(int i=0; i<count; i++) {
+					if(userNums[i].equals(un)) {
+						System.out.println("사번: "+userNums[i]);
+						System.out.println("이름: "+names[i]);
+						System.out.println("나이: "+ages[i]);
+						System.out.println("부서명: "+departments[i]);
+						System.out.println();
+						flag = false;
+						break;
+					}else if(i == count-1) {
+						System.out.println("조회하신 사원의 정보가 없습니다.");	
+					}
+				}
+
+				System.out.println("나가시려면 아무키나 누르세요. ");
+				System.out.print("> ");
+				String esc = sc.next();
 
 
 			}else if(menu == 4) {
@@ -80,6 +105,26 @@ public class EmployeeManager {
 				//사번 입력 -> 존재하는 사번이 맞다면 -> [1. 나이변경 | 2. 부서변경 | 3.취소]
 				//사번이 존재하지 않는다면 없다고 얘기해 주세요.
 
+				System.out.println("수정하고 싶은 사번을 입력하세요.");
+				System.out.print("> ");
+				String input = sc.next();
+				for(int i=0; i<count; i++) {
+					if(userNums[i].equals(input)) {
+						System.out.println("새로운 나이를 입력하세요.");
+						System.out.print("> ");
+						ages[i] = sc.nextInt();
+						System.out.println("새로운 부서를 입력하세요.");
+						System.out.print("> ");
+						departments[i] = sc.next();
+						//취소 어떻게함?
+					}else if(i == count-1) {
+						System.out.println("존재하는 사번이 아닙니다.");
+						System.out.println("나가시려면 아무키나 누르세요.");
+						System.out.print("> ");
+						String nothing = sc.next();
+
+					}
+				}
 
 			}else if(menu == 5) {
 				//사번을 입력받아서
@@ -88,8 +133,51 @@ public class EmployeeManager {
 				//y를 눌렀을 시에 삭제가 되도록 코드를 구성하세요.
 				//배열의 크기는 줄이지 않겠습니다. 삭제할 인덱스를 기준으로 뒤에 있는 값들을
 				//앞으로 한칸씩 땡기신 다음 count를 하나 내려주시면 됩니다.
+				String[] eUserNums = new String[userNums.length];
+				String[] eNames = new String[names.length];
+				int[] eAges = new int[ages.length];
+				String[] eDepartments = new String[departments.length];
 
-
+				System.out.println("사번을 입력하세요. ");
+				System.out.print("> ");
+				String dn = sc.next();
+				for(int i=0;  i<count; i++) {
+					if(userNums[i].equals(dn)) {
+						System.out.println("정말 삭제하시겠습니까? [Y/N]");
+						System.out.print("> ");
+						String input = sc.next();
+						if(input.equals("Y")) {
+							//배열 삭제
+							for(int j=i; j<count; j++) {
+								userNums[j] = userNums[j+1];
+								names[j] = names[j+1];
+								ages[j] = ages[j+1];
+								departments[j] = departments[j+1];								
+							}
+							//배열 복사
+							for(int x=0; x<count; x++) {
+								eUserNums[x] = userNums[x];
+								eNames[x] = names[x];
+								eAges[x] = ages[x];
+								eDepartments[x] = departments[x];
+							}
+							//배열 이름 변경
+							userNums = eUserNums;
+							names = eNames;
+							ages = eAges;
+							departments = eDepartments;
+							eUserNums = null;
+							eNames = null;
+							eAges = null;
+							eDepartments = null;
+							count--;
+							System.out.println("나가시려면 아무키나 누르세요.");
+							System.out.print("> ");
+							String nothing = sc.next();
+						}
+					}
+					
+				}
 			}else if(menu == 6) {
 				System.out.println("프로그램을 종료합니다.");
 				sc.close();
@@ -100,7 +188,7 @@ public class EmployeeManager {
 
 		} // end while true
 
-
+		sc.close();
 	} // end main
 
 }
