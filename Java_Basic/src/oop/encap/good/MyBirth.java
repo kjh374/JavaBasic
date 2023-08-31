@@ -97,8 +97,10 @@ public class MyBirth {
 		 //출력을 해 주지 않겠다.
 		 if(!flag) {
 			 System.out.printf("내 생일은 %d년 %d월 %d일입니다.\n",
-						this.getYear(), this.getMonth(), this.getDay()); 
+						this.year, this.month, this.day);
+			 return;
 		 }
+		 System.out.println("날짜 필드 중에 초기화 되지 않은 데이터가 있습니다.");
 		 
 	 }
 	 
@@ -117,6 +119,8 @@ public class MyBirth {
 				 flag = true;
 			 }
 			 break; 
+		 default:
+			 break;
 		 }
 	 }
 	 
