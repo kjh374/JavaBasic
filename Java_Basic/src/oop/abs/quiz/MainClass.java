@@ -20,7 +20,9 @@ public class MainClass {
 
 		Rect r = new Rect("정사각형", 5);
 		Circle c = new Circle(4);
-		System.out.printf("길이가 %d인 %s의 넓이: %.0f\n", r.length, r.getName("정사각형"), r.getArea());
+		System.out.printf("길이가 %d인 ",r.length)
+	        r.getName();
+		System.out.printf("의 넓이: %.0f￦n", r.getArea());
 		System.out.printf("반지름이 %d인 원의 넓이: %.2f", c.radius, c.getArea());
 
 	}
