@@ -25,7 +25,7 @@ public abstract class Shape {
 		public abstract double getArea();
 		
 		public void getName() {
-			System.out.println("도형 이름: " + name);
+			System.out.print(name);
 		}
 		
 }
