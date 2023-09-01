@@ -26,12 +26,13 @@ public class ScoreMain {
 		
 		Score[] scr = new Score[100];
 		Scanner sc = new Scanner(System.in);
-		
+		System.out.println("학생 정보를 입력해주세요.");
 		for(int i=0; i<scr.length; i++) {
-			scr[i] = new Score();
 			System.out.print("이름: ");
-			scr[i].setName(sc.next());
-			if(scr[i].name.equals("그만")) break;
+			String name = sc.next();
+			if(name.equals("그만")) break;
+			scr[i] = new Score();
+			scr[i].name = name;
 			System.out.print("국어: ");
 			scr[i].setKor(sc.nextInt());
 			System.out.print("영어: ");

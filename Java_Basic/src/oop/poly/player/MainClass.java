@@ -36,6 +36,14 @@ public class MainClass {
 //		m1.blizzard(targets);
 		m1.blizzard(w1, w2, m2, h1, h2);
 		w1.attack(m1);
+		
+		w1.rush(m1);
+		w2.rush(h2);
+		w1.rush(h1);
+		w1.rush(w1);
+		w2.rush(w1);
+		
+		
 	}
 	
 }

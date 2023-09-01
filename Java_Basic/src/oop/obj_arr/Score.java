@@ -21,12 +21,12 @@ public class Score {
 	double avg;
 	
 	void scoreInfo() {
-		if(!name.equals("그만")) {
+//		if(!name.equals("그만")) {
 			setTotal();
 			setAvg();
 			System.out.printf("=== %s의 학생 정보 ===\n", name);
 			System.out.printf("- 이름: %s\n- 국어: %d\n- 영어: %d\n- 수학: %d\n- 총점: %d\n- 평균: %.1f\n\n", name, kor, eng, math, getTotal(), getAvg());			
-		}
+//		}
 		
 	}
 

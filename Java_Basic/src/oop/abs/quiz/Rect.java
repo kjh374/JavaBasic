@@ -1,0 +1,19 @@
+package oop.abs.quiz;
+
+public class Rect extends Shape{
+
+	int length;
+
+	
+	
+	Rect(String name, int length){
+		this.getName(name);
+		this.length = length;
+	}
+	
+	@Override
+	public double getArea() {
+		return length * length;
+	}
+
+}
