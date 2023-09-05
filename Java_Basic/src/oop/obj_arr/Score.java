@@ -13,12 +13,12 @@ public class Score {
     - 캡슐화를 구현해서 작성해 주세요. (생성자는 맘대로 하세요.)
    */
 	
-	String name;
-	int kor;
-	int eng;
-	int math;
-	int total;
-	double avg;
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	private int total;
+	private double avg;
 	
 	void scoreInfo() {
 //		if(!name.equals("그만")) {
@@ -28,6 +28,14 @@ public class Score {
 			System.out.printf("- 이름: %s\n- 국어: %d\n- 영어: %d\n- 수학: %d\n- 총점: %d\n- 평균: %.1f\n\n", name, kor, eng, math, getTotal(), getAvg());			
 //		}
 		
+	}
+
+	public Score(String name, int kor, int eng, int math) {
+		super();
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
 	}
 
 	public String getName() {
@@ -78,7 +86,7 @@ public class Score {
 	}
 
 	public void setAvg() {
-		avg = (double)total/3;
+		avg = total/3.0;
 	}
 	
 	

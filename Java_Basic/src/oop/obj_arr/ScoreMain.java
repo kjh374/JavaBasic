@@ -27,26 +27,35 @@ public class ScoreMain {
 		Score[] scr = new Score[100];
 		Scanner sc = new Scanner(System.in);
 		System.out.println("학생 정보를 입력해주세요.");
+		System.out.println("'그만'을 입력하시면 종료됩니다.");
 		for(int i=0; i<scr.length; i++) {
 			System.out.print("이름: ");
 			String name = sc.next();
-			if(name.equals("그만")) break;
-			scr[i] = new Score();
-			scr[i].name = name;
+			if(name.equals("그만")) {
+				System.out.println("입력을 종료합니다.");
+				break;
+			}
+//			scr[i].setName(name);
 			System.out.print("국어: ");
-			scr[i].setKor(sc.nextInt());
+			int kor = sc.nextInt();
+//			scr[i].setKor(sc.nextInt());
 			System.out.print("영어: ");
-			scr[i].setEng(sc.nextInt());
+			int eng = sc.nextInt();
+//			scr[i].setEng(sc.nextInt());
 			System.out.print("수학: ");
-			scr[i].setMath(sc.nextInt());
-			System.out.println();
-		}
+			int math = sc.nextInt();
+//			scr[i].setMath(sc.nextInt());
+			scr[i] = new Score(name, kor, eng, math);
+			System.out.println("*** 입력 완료! ***");
+		} // 입력 반복문 끝.
+		
 		System.out.println("학생 정보를 출력합니다.");
 		for(Score s : scr) {
 			if(s!=null) {				
 				s.scoreInfo();
 			}
 		}
+		sc.close();
 	}
 
 }

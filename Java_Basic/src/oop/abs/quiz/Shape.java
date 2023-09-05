@@ -15,17 +15,18 @@ public abstract class Shape {
 
 		private String name;
 		
-		Shape(){
-			
-		}
 		public Shape(String name) {
 			this.name = name;
 		}
 		
 		public abstract double getArea();
 		
-		public void getName() {
-			System.out.print(name);
+		public void setName(String name) {
+			this.name = name;
 		}
+		public String getName() {
+			return name;
+		}
+	
 		
 }

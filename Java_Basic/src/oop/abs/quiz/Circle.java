@@ -2,9 +2,10 @@ package oop.abs.quiz;
 
 public class Circle extends Shape{
 
-	int radius;
+	private int radius;
 	
-	Circle(int radius){
+	Circle(String name, int radius){
+		super(name);
 		this.radius = radius;
 	}
 	
@@ -13,5 +14,10 @@ public class Circle extends Shape{
 		return radius * radius * Math.PI;
 	}
 
-	
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+	public int getRadius() {
+		return radius;
+	}
 }
