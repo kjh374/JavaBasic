@@ -12,7 +12,7 @@ public class First {
 	 */
 
 		public static String[] solution(String[] participant, String[] completion) {
-			String[] arr = new String[2];
+			String[] arr = new String[3];
 			Arrays.sort(completion);
 			int count = 0;
 			for(int i=0; i<participant.length; i++) {
@@ -54,7 +54,7 @@ public class First {
 	public static void main(String[] args) {
 
 		String[] participant = {"홍길동", "김길동", "김철수", "최철수", "박영희"};
-		String[] completion = {"최철수", "홍길동", "박영희"};
+		String[] completion = {"최철수", "홍길동"};
 
 
 
