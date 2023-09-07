@@ -1,4 +1,4 @@
-package etc.api.collection.set;
+package selfproblem;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -29,9 +29,8 @@ public class StringQuiz01 {
 				System.out.print("id가 등록되었습니다.");
 				break;
 			}
-			
 		}
-		
+		sc.close();
 		
 	}
 
