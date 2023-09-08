@@ -28,7 +28,7 @@ public class InputStreamEx {
 			}
 			*/
 			
-			byte[] arr = new byte[6];
+			byte[] arr = new byte[100];
 			int result = fis.read(arr); //100바이트 단위로 읽어들임.
 			System.out.println(Arrays.toString(arr));
 			System.out.println(result); //읽어들인 데이터의 길이

@@ -27,23 +27,39 @@ public class ParseQuiz {
 		Scanner sc = new Scanner(System.in);
 
 		String input = null;
-		System.out.print("'-'을 포함하여 주민등록번호 앞, 뒤자리를 모두 입력해주세요: ");
 		try {
-			while(true) {
+			outer: while(true) {
+				System.out.println("ex)040906-4123456");
+				System.out.print("'-'을 포함하여 주민등록번호를 모두 입력해주세요: ");
 				input = sc.nextLine();
-				if(input.charAt(6)!='-') {
-					System.out.println("다시 입력해~");
+				if(input.length()!=14) {
+					System.out.print("자리수가 이상하네요~ ");
 					continue;
+				}
+				
+				String[] str = input.split("-");
+				if(str.length>2) {
+					System.out.println(" '-'가 너무 많아요~");
+					continue;
+				}
+//				if(input.charAt(6)!='-') {
+//					System.out.println("하이픈이 없어요~");
+//					continue;
+//				}
+				if(input.indexOf("-") == -1) {
+					System.out.println("하이픈이 없어요~");
+					continue;					
 				}
 				input = input.replace("-", "");
 				for(int i=0; i<input.length(); i++) {
-					if(!(input.charAt(i)>='0' && input.charAt(i)<='9')) {???
-						System.out.println("다시 입력!");
-						continue;
+					if(!(input.charAt(i) >= '0' && input.charAt(i) <= '9')) {
+						System.out.println("숫자가 아니네요~ ");
+						continue outer;
 					}
 				}
-				if(input.charAt(6)<'0' || input.charAt(6)>'4') {
-					System.out.print("다시 입력해주세요: ");
+				
+				if(input.charAt(6)<'1' || input.charAt(6)>'4') {
+					System.out.println("22세기에서 오셨나? ");
 					continue;
 				}
 				break;
@@ -55,8 +71,8 @@ public class ParseQuiz {
 			sc.close();
 		}
 		int year = Integer.parseInt(input.substring(0, 2)) <= 23? 2000 +Integer.parseInt(input.substring(0, 2)) : 1900 + Integer.parseInt(input.substring(0, 2));
-		int month = Integer.parseInt(input.substring(2, 4)) < 10? Integer.parseInt(input.substring(3, 4)) : Integer.parseInt(input.substring(2, 4));
-		int day = Integer.parseInt(input.substring(4, 6)) < 10? Integer.parseInt(input.substring(5, 6)) : Integer.parseInt(input.substring(4, 6));
+		int month = Integer.parseInt(input.substring(2, 4));
+		int day = Integer.parseInt(input.substring(4, 6)); 
 		int age = 2023-year;
 		String gender = Integer.parseInt(input.substring(6, 7))%2 != 0? "남자":"여자";
 		System.out.printf("출력값: %d년 %d월 %d일 %d세 %s", year, month, day, age, gender);
