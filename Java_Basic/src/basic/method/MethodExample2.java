@@ -78,7 +78,7 @@ public class MethodExample2 {
 		sum =calcNumberTotal(new int[] {1, 2,3,4,5,6,7});
 		System.out.println("누적합: " + sum);
 	
-		//가변 파라미터에 갑을 보낼 때는 콤마로 쭉 나열하시거나
+		//가변 파라미터에 값을 보낼 때는 콤마로 쭉 나열하시거나
 		//배열로 퐝해서 보내도 됩니다.
 		sum = calcNumberTotal2(1,2,3,4,5,6,7);
 		System.out.println("누적합: " + sum);

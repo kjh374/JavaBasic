@@ -4,7 +4,7 @@ public class MainClass {
 
 	// 내부 클래스(inner class)
 	// 해당 객체와 밀접한 연관이 있는 경우 클래스 내에서 클래스를 선언.
-	// 일반적인 class를 저의할 때는 private을 사용할 수 없지만
+	// 일반적인 class를 정의할 때는 private을 사용할 수 없지만
 	// 클래스 내에 클래스를 선언하는 경우에는 private 선언이 가능.
 	// static -> 메모리 효율을 높이기 위해 선언. (바깥쪽 클래스 호출 시마다 재생성하는 것을 방지)
 	private static class SubCalculator implements Calculator{

@@ -31,6 +31,8 @@ public class MainClass {
 		}
 		
 		//ordinal(): 열거형 타입에 열거되어 있는 순서를 정수값으로 리턴
+		System.out.println(kim.lang.ordinal());
+		System.out.println(hong.lang.ordinal());
 		System.out.println(park.lang.ordinal());
 		
 		//valueOf(str): 매개값으로 전달된 문자열과 일치하는 요소를 리턴

@@ -45,7 +45,7 @@ public class ArrayListExample {
 		//set(인덱스, 수정할 객체): 리스트 내부의 객체를 수정
 		nick.set(2, "삐약이");
 		System.out.println(nick);
-		
+
 		//remove(인덱스), remove(객체)
 		nick.remove(5);
 		System.out.println(nick);

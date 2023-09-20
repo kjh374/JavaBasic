@@ -24,6 +24,10 @@ public class CompareStr {
         합니다.
         */
 		
+		String kim1 = "kim";
+		String kim2 = "kim";
+		System.out.println(kim1 == kim2);
+		
 		Scanner sc = new Scanner(System.in);
 		
 		User kim = new User();

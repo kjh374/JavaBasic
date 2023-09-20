@@ -1,5 +1,7 @@
 package etc.api.io.buffered;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,12 +40,21 @@ public class BufferedQuiz {
 		FileWriter write = null;
 		FileInputStream readFile = null;
 		FileReader read = null;
+		BufferedReader br = null;
+		BufferedWriter bw = null;
+		String text = "";
+		
+//		if(!nowDate.exists()) {
+//			nowDate.mkdir();
+//		}
 		try {
 			newFile = new FileOutputStream(nowDate + "/" + name + ".txt");
 			write = new FileWriter(nowDate + "/" + name + ".txt");
 			readFile = new FileInputStream(nowDate + "/" + name + ".txt");
 			read = new FileReader(nowDate + "/" + name + ".txt");
-
+			br = new BufferedReader(read);
+			bw = new BufferedWriter(write);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -57,13 +68,22 @@ public class BufferedQuiz {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(origin.equals("그만")) break;
+			if(origin.equals("그만")) {
+				System.out.println("종료합니다.");
+				break;
+			}
+			
+			text += (origin + "\r\n");
 		}
-
+//		bw.write(text);
+		System.out.println("파일 작성 완료!");
+		
+		//읽기 로직은 쓰기 로직이 끝나야 된다네..
 		try {
-								while(readFile.read()!= -1)
-								System.out.print((char)readFile.read());
-		} catch (IOException e) {
+//								while((read = br.readLine())!= null)
+//								System.out.print((char)readFile.read());
+								System.out.println(read);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try {
@@ -76,9 +96,15 @@ public class BufferedQuiz {
 				e.printStackTrace();
 			}
 		}
+		//// 파일 읽기 /////
+//		FileReader fr = null;
+//		bufferedReader br = null;
+//		fr = new FileReader();
 
+//		String read;
 
-
+//		while((read = br.readLine())!= null)
+//			System.out.println(read);
 	}
 
 
